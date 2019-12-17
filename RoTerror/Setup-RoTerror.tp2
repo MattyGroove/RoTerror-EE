@@ -1,10 +1,10 @@
 BACKUP ~RoTerror/Backup~
 
 //AUTHOR ~Gilgamesh, King Diamond (WeiDU conversion)~ NO_IF_EVAL_BUG
-SUPPORT ~Roxanne - Roxanne_Walsh@mail.com
-			Weigo - Send PM to Weigo at SHSForums.net or Weigo at Gibberlings3.net~
+SUPPORT ~Roxanne - Roxanne0Walsh@gmail.com
+	 Weigo - Send PM to Weigo at SHSForums.net or Weigo at Gibberlings3.net~
 
-VERSION ~v3.1 EE~
+VERSION ~v3.2~
 
 AUTO_TRA ~RoTerror/Language/%s~
 
@@ -19,9 +19,7 @@ ALWAYS
     OUTER_SPRINT name_source ~bg2_chapter_%i%~
     OUTER_SET EVAL ~%name_source%~ = bg2_chapter
   END
-  // Convert strings to UTF-8 for Enhanced Edition
 
-  // setup.tra needs to be reloaded after conversion
   
 <<<<<<<< .../blank.txt
 >>>>>>>>
