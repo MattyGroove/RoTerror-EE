@@ -1,6 +1,12 @@
 # RoTerror-EE
 
 ********************************************
+*** v 3.2 - 2020, February
+********************************************
+- included all Roxanne fixes from 2018/19
+- further script fixes
+- STO fixes
+********************************************
 *** v 3.1 EE - 2018, March
 ********************************************
 - compatibility with EE/EET and SOA/TOB/BGT
