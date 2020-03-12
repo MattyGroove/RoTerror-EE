@@ -1,4 +1,11 @@
 ********************************************
+*** v 3.2 - 2020, February
+********************************************
+- included all Roxanne fixes from 2018/19
+- further script fixes
+- STO fixes
+
+********************************************
 *** v 3.1 EE - 2018, March
 ********************************************
 - compatibility with EE/EET and SOA/TOB/BGT
@@ -194,7 +201,7 @@ screenshots which were taken in 2002).
 *******************************************************************************
 MOD DEVELOPER / CREATOR : "GILGAMESH"
 
-WEBSITE DESIGN : Bruno AndrÈs Bernardi ("Cuervo_br")
+WEBSITE DESIGN : Bruno Andr√©s Bernardi ("Cuervo_br")
 
 INSTALLER BY: "Wiskas"
 
@@ -218,7 +225,7 @@ this file)
 
 SPECIAL THANK'S TO :
 Max Schnur (for scripting help in the early stages of the mod creating)
-Tapio Perkiˆm‰ki (for doing nothing)
+Tapio Perki√∂m√§ki (for doing nothing)
 Gregg Kincaid (for voice acting in several roles of the mod and writing the smith's apprentice's dialogs)
 Jon Olav Hauglid (for trying to help me with an area problem)
 Lorne Ledger (for the area art of the Spirit Soaring [outside] and the area north from Bremen)
@@ -247,4 +254,4 @@ pekka_gilgamesh@hotmail.com
 or use the forum of the mod
 I'd prefer the usage of the forums.
 
-@GILGAMESH (Pekka Syrj‰nen)
+@GILGAMESH (Pekka Syrj√§nen)
