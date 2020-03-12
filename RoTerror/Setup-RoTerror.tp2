@@ -1,8 +1,6 @@
 BACKUP ~RoTerror/Backup~
 
-//AUTHOR ~Gilgamesh, King Diamond (WeiDU conversion)~ NO_IF_EVAL_BUG
-SUPPORT ~Roxanne - Roxanne0Walsh@gmail.com
-	 Weigo - Send PM to Weigo at SHSForums.net or Weigo at Gibberlings3.net~
+AUTHOR ~Gilgamesh, King Diamond (WeiDU conversion)~ NO_IF_EVAL_BUG
 
 VERSION ~v3.2~
 
@@ -93,20 +91,7 @@ LANGUAGE ~Castellano~
 BEGIN @0
 
 ACTION_IF (GAME_IS ~bg2 tob bgt~) BEGIN
-
-//	COPY + ~Setup-RoT.exe~     ~WeiDU.exe~
-	COPY + ~chitin.key~        ~RoTerror/chitin.rot~
-	ACTION_FOR_EACH var IN ~~ F BEGIN
-		ACTION_IF FILE_EXISTS ~dialog%var%.tlk~ BEGIN
-			COPY_LARGE + ~dialog%var%.tlk~ ~RoTerror/dialog%var%.rot~
-		END
-	END
-	MKDIR ~RoTerror/over.bak~
-	COPY_LARGE + ~override~      ~RoTerror/over.bak~
-		
-	INCLUDE ~%MOD_FOLDER%/lib/install-guititle.tpa~
-
-	PRINT @3
+	FAIL @3
 END
 
 COPY_EXISTING ~misc01.itm~ ~override/rot.mrk~ // tell other mod that region of terror is installed
@@ -1682,61 +1667,7 @@ LAF HANDLE_AUDIO
 	output_path = ~override~
 END
 
-ACTION_IF (GAME_IS ~bg2 tob bgt~) BEGIN
-	LAF HANDLE_TILESETS
-		STR_VAR
-		tiz_path = ~RoTerror/Tiz~
-		tisunpack_path = ~RoTerror/bin~
-	END	 
-END
-ACTION_IF (GAME_IS ~bg2ee eet~) BEGIN
-   COPY ~RoTerror\PVRZ~ ~override~
-
-END
-
-//////////////////////////////
-// biffing
-//////////////////////////////
-
-
-ACTION_IF (GAME_IS ~bg2 tob bgt~) BEGIN
-	MAKE_BIFF ~RoT-RULE~ BEGIN
-		~override~ ~RoT.mrk~
-	END
-	ACTION_IF ~%WEIDU_OS%~ STR_EQ ~win32~ BEGIN
-		AT_UNINSTALL ~rmdir /s /q %MOD_FOLDER%\temp~ EXACT
-	END ELSE BEGIN //osx, unix
-		AT_UNINSTALL ~rm -rf %MOD_FOLDER%/temp~ EXACT
-	END
-	
-	ACTION_DEFINE_ASSOCIATIVE_ARRAY table_RoT_biff BEGIN
-		~RoT-TIS~ , ~override~ , ~^.*\.tis$~ => 150000000 //150 MB
-		~RoT-WAV~ , ~override~ , ~^.*\.wav$~ => 150000000 //150 MB
-//		~RoT-RES~ , ~override~ , ~^.*$~ => 100000000 //100 MB
-	END
-	
-	ACTION_PHP_EACH table_RoT_biff AS biff => size BEGIN
-		OUTER_SET totalSize = 0
-		OUTER_SET index = 0
-		MKDIR ~%MOD_FOLDER%/temp/%biff%%index%~
-		ACTION_BASH_FOR ~%biff_1%~ ~%biff_2%~ BEGIN
-			ACTION_IF ( BASH_FOR_SIZE + totalSize > size ) AND ( totalSize > 0 ) BEGIN
-				MAKE_BIFF ~%biff%%index%~ BEGIN ~%MOD_FOLDER%/temp/%biff%%index%~ ~^.*$~ END
-				OUTER_SET index = index + 1
-				OUTER_SET totalSize = 0
-				MKDIR ~%MOD_FOLDER%/temp/%biff%%index%~
-			END
-			MOVE ~%BASH_FOR_FILESPEC%~ ~%MOD_FOLDER%/temp/%biff%%index%~
-			OUTER_SET totalSize = totalSize + BASH_FOR_SIZE
-		END
-		ACTION_IF ( totalSize > 0 ) BEGIN
-			MAKE_BIFF ~%biff%%index%~ BEGIN ~%MOD_FOLDER%/temp/%biff%%index%~ ~^.*$~ END
-		END
-	END
-END
-
-COPY_EXISTING ~misc01.itm~ ~override/RoT.mrk~
-
+COPY ~RoTerror\PVRZ~ ~override~
 
 //////////////////////////////
 // bgee.lua cheat table
